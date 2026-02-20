@@ -1,0 +1,58 @@
+[project]
+name = "fair-trees"
+dynamic = ["version"]
+description = "Fairness-aware decision tree and random forest classifiers"
+readme = "README.md"
+dependencies = [
+  "numpy>=1.22.0",
+  "scipy>=1.8.0",
+  "joblib>=1.2.0",
+  "threadpoolctl>=3.1.0",
+  "pandas>=1.4.0",
+  "matplotlib>=3.5.0",
+]
+requires-python = ">=3.10"
+license = {text = "BSD-3-Clause"}
+classifiers = [
+  "Intended Audience :: Science/Research",
+  "Intended Audience :: Developers",
+  "Programming Language :: C",
+  "Programming Language :: Python",
+  "Topic :: Scientific/Engineering",
+  "Development Status :: 3 - Alpha",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX",
+  "Operating System :: Unix",
+  "Operating System :: MacOS",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: Implementation :: CPython",
+]
+
+[project.optional-dependencies]
+build = ["numpy>=1.22.0", "scipy>=1.8.0", "cython>=3.0.10", "meson-python>=0.17.1"]
+tests = [
+  "pytest>=7.1.2",
+  "pytest-cov>=2.9.0",
+]
+
+[build-system]
+build-backend = "mesonpy"
+requires = [
+  "meson-python>=0.17.1",
+  "Cython>=3.0.10",
+  "numpy>=1.22.0",
+  "scipy>=1.8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = "fair_trees"
+addopts = [
+  "--disable-pytest-warnings",
+  "--color=yes",
+  "--import-mode=importlib",
+]

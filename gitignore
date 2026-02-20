@@ -1,0 +1,12 @@
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.c
+*.cpp
+!fair_trees/utils/src/MurmurHash3.cpp
+.eggs/
+*.whl

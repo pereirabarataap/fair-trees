@@ -19,11 +19,12 @@ jobs:
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.23
         env:
-          # Build for Python 3.10 through 3.14
           CIBW_BUILD: "cp310-* cp311-* cp312-* cp313-* cp314-*"
-          CIBW_SKIP: "*-musllinux_*"
-          # Install build dependencies
-          CIBW_BEFORE_BUILD: "pip install numpy scipy cython"
+          CIBW_SKIP: "*-musllinux_* *-win32 *-manylinux_i686"
+          CIBW_ARCHS_WINDOWS: "AMD64"
+          CIBW_ARCHS_LINUX: "x86_64"
+          CIBW_ARCHS_MACOS: "x86_64 arm64"
+          CIBW_BUILD_FRONTEND: "build"
 
       - uses: actions/upload-artifact@v4
         with:
